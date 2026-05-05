@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulan Jaya Aluminium</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 🌟 BACKGROUND ALUMINIUM */
+body{
+    font-family:'Segoe UI',sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+    background:linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000 100%);
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 6px
+    );
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle, rgba(255,215,0,0.08), transparent 60%);
+    animation:moveLight 12s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveLight{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(120px,60px);}
+    100%{transform:translate(0,0);}
+}
+
+/* CONTAINER */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* GOLD TEXT */
+.gold{
+    background:linear-gradient(45deg,#FFD700,#fff,#FFD700,#b8860b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.glow{
+    text-shadow:0 0 10px gold,0 0 20px rgba(255,215,0,0.5);
+}
+
+/* SHINE */
+.shine{
+    position:relative;
+    overflow:hidden;
+}
+.shine::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-75%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+    transform:skewX(-25deg);
+    animation:shine 3s infinite;
+}
+@keyframes shine{100%{left:125%;}}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:40px 20px;
+}
+.header img{width:120px;}
+.header h1{font-size:42px;}
+
+/* 🔥 RUNNING TEXT BAR */
+.running-text{
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    background:linear-gradient(90deg,#111,#000,#111);
+    border-top:1px solid gold;
+    border-bottom:1px solid gold;
+    padding:10px 0;
+    color:gold;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.running-text span{
+    display:inline-block;
+    padding-left:100%;
+    animation:runText 18s linear infinite;
+}
+
+@keyframes runText{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+}
+
+/* BOX */
+.box{
+    background:rgba(0,0,0,0.75);
+    border:2px solid gold;
+    border-radius:15px;
+    padding:20px;
+    margin-top:30px;
+    box-shadow:0 0 20px rgba(255,215,0,0.2);
+}
+
+.layanan li{
+    list-style:none;
+    padding:10px;
+    border-bottom:1px solid #333;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    perspective:1200px;
+}
+
+/* 3D CARD */
+.card{
+    border:2px solid gold;
+    border-radius:12px;
+    overflow:hidden;
+    background:#111;
+    transition:0.5s;
+}
+
+.card:hover{
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow:0 25px 40px rgba(255,215,0,0.4);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+}
+
+.card p{
+    padding:10px;
+    text-align:center;
+}
+
+/* KONTAK */
+.kontak-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:linear-gradient(90deg,#111,#000);
+    border:2px solid gold;
+    border-radius:15px;
+    padding:15px;
+    margin:12px 0;
+    transition:0.3s;
+    text-decoration:none;
+    color:inherit;
+}
+
+.kontak-item:hover{
+    box-shadow:0 0 15px gold;
+    transform:scale(1.02);
+}
+
+.kontak-item i{font-size:30px;}
+
+.wa{color:#25D366}
+.ig{color:#E1306C}
+.fb{color:#1877F2}
+.tt{color:#fff}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 20px;
+    background:linear-gradient(45deg,#25D366,#128C7E);
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+}
+
+/* FLOAT WA */
+.wa-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+}
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    color:gold;
+    font-style:italic;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+    <img src="logo1.jpg">
+    <h1 class="gold glow shine">Bulan Jaya</h1>
+    <p>Aluminium Kaca & ACP</p>
+    <p class="gold">Solusi Terbaik Untuk Rumah & Usaha Anda</p>
+</div>
+
+<!-- 🔥 RUNNING TEXT -->
+<div class="running-text">
+    <span>💫 BULAN JAYA ALUMINIUM • KUALITAS TERBAIK • RAPI • AWET • HUBUNGI WHATSAPP 089527198877 • MELAYANI SELURUH AREA PONTIANAK-KALIMANTAN BARAT  💫</span>
+</div>
+
+<!-- LAYANAN -->
+<div class="box">
+    <h2 class="gold glow">💫 Terima Jasa Pembuatan 💫</h2>
+    <ul class="layanan">
+        <li>Lemari ACP Modern & Kaca</li>
+        <li>Kusen & Pintu Aluminium</li>
+        <li>Partisi Kaca</li>
+        <li>Jendela</li>
+        <li>Kitchen Set</li>
+        <li>Gerobak</li>
+    </ul>
+</div>
+
+<!-- PRODUK -->
+<div class="box">
+    <h2 class="gold glow">LIST PRODUK KAMI</h2>
+    <div class="grid">
+        <div class="card"><img src="rias.jpg"><p>Lemari Rias</p></div>
+        <div class="card"><img src="gerobak.jpg"><p>Gerobak</p></div>
+        <div class="card"><img src="rakpiring.jpg"><p>Lemari Piring</p></div>
+        <div class="card"><img src="lemaribaju.jpg"><p>Lemari Pakaian</p></div>
+        <div class="card"><img src="kaca.jpg"><p>Jendela</p></div>
+        <div class="card"><img src="lemaritv.jpg"><p>Lemari TV</p></div>
+    </div>
+</div>
+
+<!-- KONTAK -->
+<div class="box">
+    <h2 class="gold glow">HUBUNGI KAMI</h2>
+
+    <a href="https://wa.me/6289527198877" class="kontak-item" target="_blank">
+        <i class="fab fa-whatsapp wa"></i>
+        <span>089527198877</span>
+    </a>
+
+    <a href="https://www.instagram.com/bj_alum88" class="kontak-item" target="_blank">
+        <i class="fab fa-instagram ig"></i>
+        <span>@bj_alum88</span>
+    </a>
+
+    <a href="https://www.facebook.com/VeRyadiTan" class="kontak-item" target="_blank">
+        <i class="fab fa-facebook fb"></i>
+        <span>VeRyadi Tan</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@bj_alum88" class="kontak-item" target="_blank">
+        <i class="fab fa-tiktok tt"></i>
+        <span>@bj_alum88</span>
+    </a>
+
+    <a href="https://wa.me/6289527198877" class="btn" target="_blank">Chat WhatsApp</a>
+</div>
+
+<div class="footer">
+    Berkualitas • Rapi • Awet
+</div>
+
+</div>
+
+<a href="https://wa.me/6289527198877" class="wa-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
