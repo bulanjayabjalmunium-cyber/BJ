@@ -8,6 +8,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+    
+    
+    /* ===== 3D HALUS + KEDIP OTOMATIS ===== */
+.card{
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: float3D 2s ease-in-out infinite;
+}
+
+/* gerakan naik turun halus */
+@keyframes float3D{
+    0%,100%{transform:translateY(0) rotateX(0)}
+    50%{transform:translateY(-5px) rotateX(3deg)}
+}
+
+/* kilat otomatis */
+.card::after{
+    animation: autoShine 3s infinite;
+    opacity: 0.7;
+}
+
+@keyframes autoShine{
+    0%{left:-75%;opacity:0}
+    20%{opacity:1}
+    100%{left:125%;opacity:0}
+}
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
@@ -24,8 +50,8 @@ body::before{
     inset:0;
     background:repeating-linear-gradient(
         135deg,
-        rgba(255,255,255,0.03) 0px,
-        rgba(255,255,255,0.03) 1px,
+        rgba(234, 239, 240, 0.03) 0px,
+        rgba(231, 217, 217, 0.03) 1px,
         transparent 1px,
         transparent 6px
     );
@@ -37,7 +63,7 @@ body::after{
     position:fixed;
     top:-50%;left:-50%;
     width:200%;height:200%;
-    background:radial-gradient(circle, rgba(255,215,0,0.08), transparent 60%);
+    background:radial-gradient(circle, rgba(250, 248, 240, 0.08), transparent 60%);
     animation:moveLight 12s linear infinite;
     z-index:-1;
 }
@@ -51,45 +77,45 @@ body::after{
 .container{max-width:1200px;margin:auto;padding:20px}
 
 .gold{
-    background:linear-gradient(45deg,#FFD700,#fff,#FFD700,#b8860b);
+    background:linear-gradient(45deg,#d3d1ca,#fff,#e9e8e3,#fafafa);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
-.glow{text-shadow:0 0 10px gold,0 0 20px rgba(255,215,0,0.5)}
+.glow{text-shadow:0 0 10px rgb(255, 255, 255),0 0 20px rgb(243, 243, 238)}
 .shine{position:relative;overflow:hidden}
 .shine::after{
     content:"";
     position:absolute;
     top:0;left:-75%;
     width:50%;height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+    background:linear-gradient(120deg,transparent,rgb(243, 237, 237),transparent);
     transform:skewX(-25deg);
     animation:shine 3s infinite;
 }
 @keyframes shine{100%{left:125%}}
 
 .header{text-align:center;padding:40px 20px}
-.header img{width:120px}
-.header h1{font-size:42px}
+.header img{width: 150px;px}
+.header h1{font-size:75px}
 
 .running-text{
     width:100%;overflow:hidden;white-space:nowrap;
     background:linear-gradient(90deg,#111,#000,#111);
-    border-top:1px solid gold;
-    border-bottom:1px solid gold;
+    border-top:1px solid rgb(248, 248, 248);
+    border-bottom:1px solid rgb(247, 246, 243);
     padding:10px 0;
-    color:gold;font-weight:bold;
+    color:rgb(247, 247, 247);font-weight:bold;
 }
 .running-text span{
     display:inline-block;
     padding-left:100%;
-    animation:runText 18s linear infinite;
+    animation:runText 20s linear infinite;
 }
 @keyframes runText{100%{transform:translateX(-100%)}}
 
 .box{
     background:rgba(0,0,0,0.75);
-    border:2px solid gold;
+    border:2px solid rgb(255, 253, 240);
     border-radius:15px;
     padding:20px;
     margin-top:30px;
@@ -98,10 +124,10 @@ body::after{
 /* LAYANAN LIST */
 .layanan{
     margin-top:10px;
-    padding-left:20px;
+    padding-left:50px;
 }
 .layanan li{
-    margin:8px 0;
+    margin:10px 0;
     color:#fff;
 }
 
@@ -112,8 +138,8 @@ body::after{
 }
 
 .card{
-    border:2px solid gold;
-    border-radius:12px;
+    border:2px solid rgb(241, 240, 233);
+    border-radius:15px;
     overflow:hidden;
     background:#111;
     transition:0.5s;
@@ -121,7 +147,7 @@ body::after{
 }
 .card:hover{
     transform:scale(1.05);
-    box-shadow:0 25px 40px rgba(255,215,0,0.4);
+    box-shadow:0 25px 40px rgba(245, 245, 243, 0.4);
 }
 .card img{width:100%;height:200px;object-fit:cover}
 .card p{text-align:center;padding:10px}
@@ -129,7 +155,7 @@ body::after{
 .kontak-item{
     display:flex;align-items:center;gap:15px;
     background:linear-gradient(90deg,#111,#000);
-    border:2px solid gold;
+    border:2px solid rgb(240, 239, 235);
     border-radius:15px;
     padding:15px;margin:12px 0;
     text-decoration:none;color:#fff;
@@ -157,7 +183,7 @@ body::after{
     font-size:22px;text-decoration:none;
 }
 
-.footer{text-align:center;margin-top:40px;color:gold;font-style:italic}
+.footer{text-align:center;margin: top 40px;px;color:rgb(247, 188, 11);font-style:italic}
 
 /* MODAL */
 .modal{
@@ -195,7 +221,7 @@ body::after{
     left:-75%;
     width:50%;
     height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,215,0,0.6),transparent);
+    background:linear-gradient(120deg,transparent,rgba(243, 242, 238, 0.6),transparent);
     transform:skewX(-25deg);
     opacity:0;
 }
@@ -213,24 +239,26 @@ body::after{
 
 </style>
 </head>
-
+<div class="running-text">
+    <span>💫  BULAN JAYA ALUMINIUM • KUALITAS TERBAIK • RAPI • AWET • HUB WHATSAPP 089527198877 • MELAYANI SELURUH AREA PONTIANAK-KALIMANTAN BARAT    💫</span>
+</div> 
 <body>
 
 <div class="container">
 
 <div class="header">
     <img src="logo1.jpg">
-    <h1 class="gold glow shine">Bulan Jaya</h1>
+    <h1 class="white-space glow shine">BULAN JAYA</h1>
     <p>Aluminium Kaca & ACP</p>
 </div>
 
 <div class="running-text">
-    <span>💫 BULAN JAYA ALUMINIUM • KUALITAS TERBAIK • RAPI • AWET • HUB WHATSAPP 089527198877 • MELAYANI SELURUH AREA PONTIANAK-KALIMANTAN BARAT 💫</span>
+    <span>💫 🥰 TERIMA KASIH SUDAH MENGUNJUNGI TOKO KAMI BULAN JAYA ALUMINIUM  🥰  💫</span>
 </div>
 
 <!-- LAYANAN (FIXED CLOSE TAG) -->
 <div class="box fade-in">
-    <h2 class="gold glow">💫 Terima Jasa Pembuatan 💫</h2>
+    <h2 class="white-space glow">💫 TERIMA JASA PEMBUATAN 💫</h2>
     <ul class="layanan">
         <li>Lemari ACP Modern & Kaca</li>
         <li>Kusen & Pintu Aluminium</li>
@@ -254,7 +282,7 @@ body::after{
 <img src="gerobak.jpg"><p>GEROBAK JUALAN </p>
 </div>
 
-<div class="card" onclick="openModal(['rakpiring.jpg','rakpiring.jpg','rakpiring.jpg'])">
+<div class="card" onclick="openModal(['rakpiring.jpg','rakpiring.jpg''rakpiring.jpg'])">
 <img src="rakpiring.jpg"><p>RAK PIRING </p>
 </div>
 
@@ -275,7 +303,7 @@ body::after{
 
 <!-- KONTAK -->
 <div class="box">
-<h2 class="gold glow">HUBUNGI KAMI</h2>
+<h2 class="PINK glow">HUBUNGI KAMI</h2>
 
 <a href="https://wa.me/6289527198877" class="kontak-item"><i class="fab fa-whatsapp wa"></i>089527198877</a>
 <a href="https://www.instagram.com/bj_alum88" class="kontak-item"><i class="fab fa-instagram ig"></i>@bj_alum88</a>
@@ -285,7 +313,7 @@ body::after{
 <a href="https://wa.me/6289527198877" class="btn">Chat WhatsApp</a>
 </div>
 
-<div class="footer">Berkualitas • Rapi • Awet</div>
+<div class="footer">KEPUASAN ANDA ADALAH PRIORITAS KAMI ! </div>
 
 </div>
 
