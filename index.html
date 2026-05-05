@@ -10,7 +10,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🌟 BACKGROUND ALUMINIUM */
 body{
     font-family:'Segoe UI',sans-serif;
     color:#fff;
@@ -22,10 +21,7 @@ body{
 body::before{
     content:"";
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:repeating-linear-gradient(
         135deg,
         rgba(255,255,255,0.03) 0px,
@@ -39,10 +35,8 @@ body::before{
 body::after{
     content:"";
     position:fixed;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
+    top:-50%;left:-50%;
+    width:200%;height:200%;
     background:radial-gradient(circle, rgba(255,215,0,0.08), transparent 60%);
     animation:moveLight 12s linear infinite;
     z-index:-1;
@@ -54,157 +48,98 @@ body::after{
     100%{transform:translate(0,0);}
 }
 
-/* CONTAINER */
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
+.container{max-width:1200px;margin:auto;padding:20px}
 
-/* GOLD TEXT */
 .gold{
     background:linear-gradient(45deg,#FFD700,#fff,#FFD700,#b8860b);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
-
-.glow{
-    text-shadow:0 0 10px gold,0 0 20px rgba(255,215,0,0.5);
-}
-
-/* SHINE */
-.shine{
-    position:relative;
-    overflow:hidden;
-}
+.glow{text-shadow:0 0 10px gold,0 0 20px rgba(255,215,0,0.5)}
+.shine{position:relative;overflow:hidden}
 .shine::after{
     content:"";
     position:absolute;
-    top:0;
-    left:-75%;
-    width:50%;
-    height:100%;
+    top:0;left:-75%;
+    width:50%;height:100%;
     background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
     transform:skewX(-25deg);
     animation:shine 3s infinite;
 }
-@keyframes shine{100%{left:125%;}}
+@keyframes shine{100%{left:125%}}
 
-/* HEADER */
-.header{
-    text-align:center;
-    padding:40px 20px;
-}
-.header img{width:120px;}
-.header h1{font-size:42px;}
+.header{text-align:center;padding:40px 20px}
+.header img{width:120px}
+.header h1{font-size:42px}
 
-/* 🔥 RUNNING TEXT BAR */
 .running-text{
-    width:100%;
-    overflow:hidden;
-    white-space:nowrap;
+    width:100%;overflow:hidden;white-space:nowrap;
     background:linear-gradient(90deg,#111,#000,#111);
     border-top:1px solid gold;
     border-bottom:1px solid gold;
     padding:10px 0;
-    color:gold;
-    font-weight:bold;
-    letter-spacing:1px;
+    color:gold;font-weight:bold;
 }
-
 .running-text span{
     display:inline-block;
     padding-left:100%;
     animation:runText 18s linear infinite;
 }
+@keyframes runText{100%{transform:translateX(-100%)}}
 
-@keyframes runText{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-100%);}
-}
-
-/* BOX */
 .box{
     background:rgba(0,0,0,0.75);
     border:2px solid gold;
     border-radius:15px;
     padding:20px;
     margin-top:30px;
-    box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
+/* LAYANAN LIST */
+.layanan{
+    margin-top:10px;
+    padding-left:20px;
+}
 .layanan li{
-    list-style:none;
-    padding:10px;
-    border-bottom:1px solid #333;
+    margin:8px 0;
+    color:#fff;
 }
 
-/* GRID */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
-    perspective:1200px;
 }
 
-/* 3D CARD */
 .card{
     border:2px solid gold;
     border-radius:12px;
     overflow:hidden;
     background:#111;
     transition:0.5s;
+    cursor:pointer;
 }
-
 .card:hover{
-    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    transform:scale(1.05);
     box-shadow:0 25px 40px rgba(255,215,0,0.4);
 }
+.card img{width:100%;height:200px;object-fit:cover}
+.card p{text-align:center;padding:10px}
 
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    transition:0.5s;
-}
-
-.card:hover img{
-    transform:scale(1.1);
-}
-
-.card p{
-    padding:10px;
-    text-align:center;
-}
-
-/* KONTAK */
 .kontak-item{
-    display:flex;
-    align-items:center;
-    gap:15px;
+    display:flex;align-items:center;gap:15px;
     background:linear-gradient(90deg,#111,#000);
     border:2px solid gold;
     border-radius:15px;
-    padding:15px;
-    margin:12px 0;
-    transition:0.3s;
-    text-decoration:none;
-    color:inherit;
+    padding:15px;margin:12px 0;
+    text-decoration:none;color:#fff;
 }
-
-.kontak-item:hover{
-    box-shadow:0 0 15px gold;
-    transform:scale(1.02);
-}
-
-.kontak-item i{font-size:30px;}
-
+.kontak-item i{font-size:30px}
 .wa{color:#25D366}
 .ig{color:#E1306C}
 .fb{color:#1877F2}
 .tt{color:#fff}
 
-/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:15px;
@@ -215,25 +150,67 @@ body::after{
     color:#fff;
 }
 
-/* FLOAT WA */
 .wa-float{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:15px;
-    border-radius:50%;
-    font-size:22px;
-    text-decoration:none;
+    position:fixed;bottom:20px;right:20px;
+    background:#25D366;color:#fff;
+    padding:15px;border-radius:50%;
+    font-size:22px;text-decoration:none;
 }
 
-.footer{
-    text-align:center;
-    margin-top:40px;
-    color:gold;
-    font-style:italic;
+.footer{text-align:center;margin-top:40px;color:gold;font-style:italic}
+
+/* MODAL */
+.modal{
+    display:none;position:fixed;inset:0;
+    background:rgba(0,0,0,0.9);
+    z-index:9999;
+    justify-content:center;align-items:center;
 }
+.modal-content{width:90%;max-width:700px;position:relative;text-align:center}
+.main-img{width:100%;border:3px solid gold;border-radius:10px}
+.thumbs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.thumbs img{width:70px;height:60px;object-fit:cover;border:2px solid #fff;cursor:pointer}
+.close{position:absolute;top:-10px;right:0;font-size:30px;color:gold;cursor:pointer}
+/* ===== FADE IN SCROLL ANIMATION ===== */
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.8s ease;
+}
+.fade-in.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== KILAT EMAS HOVER PRODUK ===== */
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-75%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,215,0,0.6),transparent);
+    transform:skewX(-25deg);
+    opacity:0;
+}
+
+.card:hover::after{
+    animation:cardShine 0.9s ease;
+    opacity:1;
+}
+
+@keyframes cardShine{
+    0%{left:-75%;opacity:0}
+    20%{opacity:1}
+    100%{left:125%;opacity:0}
+}
+
 </style>
 </head>
 
@@ -241,21 +218,18 @@ body::after{
 
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
     <img src="logo1.jpg">
     <h1 class="gold glow shine">Bulan Jaya</h1>
     <p>Aluminium Kaca & ACP</p>
-    <p class="gold">Solusi Terbaik Untuk Rumah & Usaha Anda</p>
 </div>
 
-<!-- 🔥 RUNNING TEXT -->
 <div class="running-text">
-    <span>💫 BULAN JAYA ALUMINIUM • KUALITAS TERBAIK • RAPI • AWET • HUBUNGI WHATSAPP 089527198877 • MELAYANI SELURUH AREA PONTIANAK-KALIMANTAN BARAT  💫</span>
+    <span>💫 BULAN JAYA ALUMINIUM • KUALITAS TERBAIK • RAPI • AWET • HUB WHATSAPP 089527198877 • MELAYANI SELURUH AREA PONTIANAK-KALIMANTAN BARAT 💫</span>
 </div>
 
-<!-- LAYANAN -->
-<div class="box">
+<!-- LAYANAN (FIXED CLOSE TAG) -->
+<div class="box fade-in">
     <h2 class="gold glow">💫 Terima Jasa Pembuatan 💫</h2>
     <ul class="layanan">
         <li>Lemari ACP Modern & Kaca</li>
@@ -269,53 +243,96 @@ body::after{
 
 <!-- PRODUK -->
 <div class="box">
-    <h2 class="gold glow">LIST PRODUK KAMI</h2>
-    <div class="grid">
-        <div class="card"><img src="rias.jpg"><p>Lemari Rias</p></div>
-        <div class="card"><img src="gerobak.jpg"><p>Gerobak</p></div>
-        <div class="card"><img src="rakpiring.jpg"><p>Lemari Piring</p></div>
-        <div class="card"><img src="lemaribaju.jpg"><p>Lemari Pakaian</p></div>
-        <div class="card"><img src="kaca.jpg"><p>Jendela</p></div>
-        <div class="card"><img src="lemaritv.jpg"><p>Lemari TV</p></div>
-    </div>
+<h2 class="gold glow">LIST PRODUK KAMI</h2>
+<div class="grid">
+
+<div class="card" onclick="openModal(['rias.jpg','rias.jpg','rias.jpg'])">
+<img src="rias.jpg"><p>LEMARI RIAS </p>
+</div>
+
+<div class="card" onclick="openModal(['gerobak.jpg','gerobak.jpg','gerobak.jpg'])">
+<img src="gerobak.jpg"><p>GEROBAK JUALAN </p>
+</div>
+
+<div class="card" onclick="openModal(['rakpiring.jpg','rakpiring.jpg','rakpiring.jpg'])">
+<img src="rakpiring.jpg"><p>RAK PIRING </p>
+</div>
+
+<div class="card" onclick="openModal(['lemaribaju.jpg','lemaribaju.jpg','lemaribaju.jpg'])">
+<img src="lemaribaju.jpg"><p>LEMARI PAKAIAN</p>
+</div>
+
+<div class="card" onclick="openModal(['kaca.jpg','kaca.jpg','kaca.jpg'])">
+<img src="kaca.jpg"><p>PEMASANGAN JENDELA </p>
+</div>
+
+<div class="card" onclick="openModal(['lemaritv.jpg','lemaritv.jpg','lemaritv.jpg'])">
+<img src="lemaritv.jpg"><p>LEMARI TV </p>
+</div>
+
+</div>
 </div>
 
 <!-- KONTAK -->
 <div class="box">
-    <h2 class="gold glow">HUBUNGI KAMI</h2>
+<h2 class="gold glow">HUBUNGI KAMI</h2>
 
-    <a href="https://wa.me/6289527198877" class="kontak-item" target="_blank">
-        <i class="fab fa-whatsapp wa"></i>
-        <span>089527198877</span>
-    </a>
+<a href="https://wa.me/6289527198877" class="kontak-item"><i class="fab fa-whatsapp wa"></i>089527198877</a>
+<a href="https://www.instagram.com/bj_alum88" class="kontak-item"><i class="fab fa-instagram ig"></i>@bj_alum88</a>
+<a href="https://www.facebook.com/VeRyadiTan" class="kontak-item"><i class="fab fa-facebook fb"></i>VeRyadi Tan</a>
+<a href="https://www.tiktok.com/@bj_alum88" class="kontak-item"><i class="fab fa-tiktok tt"></i>@bj_alum88</a>
 
-    <a href="https://www.instagram.com/bj_alum88" class="kontak-item" target="_blank">
-        <i class="fab fa-instagram ig"></i>
-        <span>@bj_alum88</span>
-    </a>
-
-    <a href="https://www.facebook.com/VeRyadiTan" class="kontak-item" target="_blank">
-        <i class="fab fa-facebook fb"></i>
-        <span>VeRyadi Tan</span>
-    </a>
-
-    <a href="https://www.tiktok.com/@bj_alum88" class="kontak-item" target="_blank">
-        <i class="fab fa-tiktok tt"></i>
-        <span>@bj_alum88</span>
-    </a>
-
-    <a href="https://wa.me/6289527198877" class="btn" target="_blank">Chat WhatsApp</a>
+<a href="https://wa.me/6289527198877" class="btn">Chat WhatsApp</a>
 </div>
 
-<div class="footer">
-    Berkualitas • Rapi • Awet
-</div>
+<div class="footer">Berkualitas • Rapi • Awet</div>
 
 </div>
 
-<a href="https://wa.me/6289527198877" class="wa-float">
-<i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/6289527198877" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="mainImg" class="main-img">
+        <div id="thumbs" class="thumbs"></div>
+    </div>
+</div>
+
+<script>
+function openModal(imgs){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("mainImg").src=imgs[0];
+
+    let thumbs=document.getElementById("thumbs");
+    thumbs.innerHTML="";
+
+    imgs.forEach(img=>{
+        let el=document.createElement("img");
+        el.src=img;
+        el.onclick=()=>document.getElementById("mainImg").src=img;
+        thumbs.appendChild(el);
+    });
+}
+
+function closeModal(e){
+    if(!e || e.target.id==="modal"){
+        document.getElementById("modal").style.display="none";
+    }
+}
+// ===== SCROLL FADE IN =====
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{threshold:0.15});
+
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+</script>
 
 </body>
 </html>
